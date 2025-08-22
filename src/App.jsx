@@ -12,13 +12,17 @@ export const App = () => {
     setCount(prev => prev + 100);
   };
 
-  // DON'T change the code below
+  // Corrigido: primeiro adiciona 1, depois verifica se o novo valor é divisível por 5
   const increase = () => {
-    if (count % 5 === 0) {
-      add100();
-    }
+    setCount(prev => {
+      const next = prev + 1;
+      // Se o novo valor for divisível por 5, adiciona 100
+      if (next % 5 === 0) {
+        return next + 100;
+      }
 
-    addOne();
+      return next;
+    });
   };
 
   return (
